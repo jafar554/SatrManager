@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Restaurant Management Dashboard for Social Media Teams">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Restaurant Dashboard">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- Windows PWA Support -->
+    <meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <title>لوحة إدارة المطاعم - سطر ميديا</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <div class="logo-text">
+                        <h1>لوحة إدارة المطاعم</h1>
+                        <span class="powered-by">مدعوم من سطر ميديا</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="theme-toggle">
+                        <button class="btn btn-icon" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                    <div class="online-status" id="onlineStatus">
+                        <i class="fas fa-circle"></i>
+                        <span>متصل</span>
+                    </div>
+                    <button class="btn btn-secondary" id="refreshBtn">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>تحديث البيانات</span>
+                    </button>
+                    <button class="btn btn-primary" id="adminLoginBtn">
+                        <i class="fas fa-user-shield"></i>
+                        <span>تسجيل دخول المدير</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <div class="nav-container">
+                <button class="nav-btn active" data-section="restaurants">
+                    <i class="fas fa-store"></i>
+                    <span>المطاعم</span>
+                </button>
+                <button class="nav-btn" data-section="search">
+                    <i class="fas fa-search"></i>
+                    <span>البحث السريع</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Restaurants Section -->
+            <section id="restaurants-section" class="content-section active">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>دليل المطاعم</h2>
+                        <p class="section-subtitle">إدارة وعرض معلومات المطاعم ومناطق التوصيل</p>
+                    </div>
+                    <div class="section-actions">
+                        <button class="btn btn-primary" id="addRestaurantBtn" style="display: none;">
+                            <i class="fas fa-plus"></i>
+                            <span>إضافة مطعم</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="restaurants-grid" id="restaurantsGrid">
+                    <!-- Restaurant cards will be dynamically loaded here -->
+                </div>
+            </section>
+
+            <!-- Quick Search Section -->
+            <section id="search-section" class="content-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>البحث السريع</h2>
+                        <p class="section-subtitle">ابحث عن مناطق التوصيل بسرعة</p>
+                    </div>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-input-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="zoneSearchInput" placeholder="أدخل اسم المنطقة أو الرمز البريدي...">
+                    </div>
+                    <div class="search-results" id="searchResults">
+                        <!-- Search results will appear here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Restaurant Modal -->
+        <div id="restaurantModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">تفاصيل المطعم</h3>
+                    <button class="modal-close" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Restaurant details will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>جاري تحميل البيانات...</p>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div id="toastContainer" class="toast-container"></div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-top">
+                    <p>جميع الحقوق محفوظة لدى <strong>سَطْر ميديا</strong> &copy; 2025</p>
+                </div>
+                <div class="footer-bottom">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:satr.media1@gmail.com">satr.media1@gmail.com</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/satr.media/" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61582211985532" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
