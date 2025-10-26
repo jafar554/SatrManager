@@ -182,7 +182,7 @@ class RestaurantDashboard {
                 // Juicy & Crunchy - خلدا
                 {
                     id: 1,
-                    name: "جوسي و كرنشي - خلدا",
+                    name: "Juicy & Crunchy - خلدا",
                     deliveryZones: [
                         // Tier A (1.00-1.50 JOD / 20-30 mins)
                         { zone: "خلدا", price: 1.00, deliveryTime: 20 },
@@ -210,7 +210,7 @@ class RestaurantDashboard {
                 // Juicy & Crunchy - أبو نصير
                 {
                     id: 2,
-                    name: "جوسي و كرنشي - أبو نصير",
+                    name: "Juicy & Crunchy - أبو نصير",
                     deliveryZones: [
                         // Tier A (1.00-1.50 JOD / 20-30 mins)
                         { zone: "أبو نصير", price: 1.00, deliveryTime: 20 },
@@ -237,7 +237,7 @@ class RestaurantDashboard {
                 // TAKE A BITE - جبل الحسين
                 {
                     id: 3,
-                    name: "تايك ا بيت - جبل الحسين",
+                    name: "TAKE A BITE - جبل الحسين",
                     deliveryZones: [
                         // Tier A (1.00-1.50 JOD / 20-30 mins)
                         { zone: "جبل الحسين", price: 1.00, deliveryTime: 20 },
@@ -266,7 +266,7 @@ class RestaurantDashboard {
                 // TAKE A BITE - جبل عمّان
                 {
                     id: 4,
-                    name: "تايك ا بيت - جبل عمّان",
+                    name: "TAKE A BITE - جبل عمّان",
                     deliveryZones: [
                         // Tier A (1.00-1.50 JOD / 20-30 mins)
                         { zone: "شارع الرينبو", price: 1.00, deliveryTime: 20 },
@@ -295,7 +295,7 @@ class RestaurantDashboard {
                 // UN PIZZA - مكسيم مول / جبل الحسين
                 {
                     id: 5,
-                    name: "أون بيتزا - مكسيم مول / جبل الحسين",
+                    name: "UN PIZZA - جبل الحسين",
                     deliveryZones: [
                         // Tier A (1.00-1.50 JOD / 20-30 mins)
                         { zone: "جبل الحسين", price: 1.00, deliveryTime: 20 },
@@ -321,33 +321,7 @@ class RestaurantDashboard {
                     ]
                 },
                 
-                // Additional Restaurant - Pizza Station - عبدون
-                {
-                    id: 6,
-                    name: "بيتزا ستاشن - عبدون",
-                    deliveryZones: [
-                        // Tier A (1.00-1.50 JOD / 20-30 mins)
-                        { zone: "عبدون", price: 1.00, deliveryTime: 20 },
-                        { zone: "الراشدية", price: 1.00, deliveryTime: 22 },
-                        { zone: "جبل عمان", price: 1.00, deliveryTime: 25 },
-                        { zone: "الدوار الأول", price: 1.00, deliveryTime: 25 },
-                        { zone: "الدوار الثاني", price: 1.00, deliveryTime: 25 },
-                        { zone: "الدوار الثالث", price: 1.00, deliveryTime: 30 },
-                        
-                        // Tier B (1.50-2.00 JOD / 30-45 mins)
-                        { zone: "العبدلي", price: 1.50, deliveryTime: 35 },
-                        { zone: "الشميساني", price: 1.50, deliveryTime: 35 },
-                        { zone: "جبل الحسين", price: 1.50, deliveryTime: 40 },
-                        { zone: "الصويفية", price: 1.50, deliveryTime: 40 },
-                        { zone: "القويسمة", price: 1.50, deliveryTime: 40 },
-                        
-                        // Tier C (2.00-3.00 JOD / 45-60 mins)
-                        { zone: "اليرموك", price: 2.00, deliveryTime: 50 },
-                        { zone: "جبل الهوس", price: 2.00, deliveryTime: 50 },
-                        { zone: "الدوار الرابع", price: 2.50, deliveryTime: 55 },
-                        { zone: "الدوار الخامس", price: 2.50, deliveryTime: 55 }
-                    ]
-                }
+                
             ];
             this.saveRestaurantsToStorage();
         }
